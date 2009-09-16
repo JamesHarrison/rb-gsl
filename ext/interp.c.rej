@@ -1,0 +1,17 @@
+***************
+*** 214,220 ****
+        ptrz = (double*) na->ptr;
+        ary = na_make_object(NA_DFLOAT, na->rank, na->shape, CLASS_OF(xx));
+        ptr = NA_PTR_TYPE(ary, double*);
+-       for (i = 0; i < size; i++)
+         ptr[i] = (*eval)(rgi->p, ptrx, ptry, ptrz[i], rgi->a);
+        return ary;
+      }
+--- 220,226 ----
+        ptrz = (double*) na->ptr;
+        ary = na_make_object(NA_DFLOAT, na->rank, na->shape, CLASS_OF(xx));
+        ptr = NA_PTR_TYPE(ary, double*);
++       for (i = 0; i < na->total; i++)
+         ptr[i] = (*eval)(rgi->p, ptrx, ptry, ptrz[i], rgi->a);
+        return ary;
+      }

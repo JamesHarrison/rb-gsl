@@ -1,0 +1,293 @@
+have_library: checking for main() in -lcblas... -------------------- no
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -lcblas  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+/usr/bin/ld: cannot find -lcblas
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -lcblas  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+/usr/bin/ld: cannot find -lcblas
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { main(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for round()... -------------------- no
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘round’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))round; return 0; }
+/* end */
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: warning: implicit declaration of function ‘round’
+conftest.c:5: warning: incompatible implicit declaration of built-in function ‘round’
+conftest.c:5: error: too few arguments to function ‘round’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { round(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for rngextra/rngextra.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:31: error: rngextra/rngextra.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <rngextra/rngextra.h>
+/* end */
+
+--------------------
+
+have_header: checking for qrngextra/qrngextra.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:33: error: qrngextra/qrngextra.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <qrngextra/qrngextra.h>
+/* end */
+
+--------------------
+
+have_header: checking for ool/ool_version.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:29: error: ool/ool_version.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ool/ool_version.h>
+/* end */
+
+--------------------
+
+have_header: checking for gsl_tensor/gsl_tensor.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:35: error: gsl_tensor/gsl_tensor.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <gsl_tensor/gsl_tensor.h>
+/* end */
+
+--------------------
+
+have_header: checking for jacobi.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:20: error: jacobi.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <jacobi.h>
+/* end */
+
+--------------------
+
+have_header: checking for gsl/gsl_cqp.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:25: error: gsl/gsl_cqp.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <gsl/gsl_cqp.h>
+/* end */
+
+--------------------
+
+have_header: checking for gsl/gsl_multimin_fsdf.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:35: error: gsl/gsl_multimin_fsdf.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <gsl/gsl_multimin_fsdf.h>
+/* end */
+
+--------------------
+
+have_library: checking for gsl_poly_solve_quartic() in -lgsl... -------------------- no
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -lgsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘gsl_poly_solve_quartic’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))gsl_poly_solve_quartic; return 0; }
+/* end */
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -lgsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: warning: implicit declaration of function ‘gsl_poly_solve_quartic’
+/tmp/ccuFSpVf.o: In function `t':
+conftest.c:(.text+0x15): undefined reference to `gsl_poly_solve_quartic'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { gsl_poly_solve_quartic(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for gsl_eigen_francis() in -lgsl... -------------------- yes
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -lgsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘gsl_eigen_francis’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))gsl_eigen_francis; return 0; }
+/* end */
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -lgsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: warning: implicit declaration of function ‘gsl_eigen_francis’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { gsl_eigen_francis(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for ndlinear/gsl_multifit_ndlinear.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:44: error: ndlinear/gsl_multifit_ndlinear.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ndlinear/gsl_multifit_ndlinear.h>
+/* end */
+
+--------------------
+
+find_executable: checking for graph... -------------------- no
+
+--------------------
+
+have_header: checking for narray.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext -I/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:20: error: narray.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <narray.h>
+/* end */
+
+--------------------
+
+have_header: checking for tamu_anova/tamu_anova.h... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext -I/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux     -Wall -I../include -I/usr/include  conftest.c -o conftest.i"
+conftest.c:3:35: error: tamu_anova/tamu_anova.h: No such file or directory
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <tamu_anova/tamu_anova.h>
+/* end */
+
+--------------------
+
+have_library: checking for main() in -ltamuanova... -------------------- no
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext -I/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux -Wl,-R/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm -lgsl  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -ltamuanova -lgsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+/usr/bin/ld: cannot find -ltamuanova
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+"gcc -o conftest -I/usr/local/include/ruby-1.9.1/x86_64-linux -I/usr/local/include/ruby-1.9.1/ruby/backward -I/usr/local/include/ruby-1.9.1 -I/home/james/development/rb-gsl-1.10.3/ext -I/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux     -Wall -I../include -I/usr/include conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux -Wl,-R/usr/local/lib/ruby/site_ruby/1.9.1/x86_64-linux -L.  -rdynamic -Wl,-export-dynamic    -L/usr/lib -lgsl -lgslcblas -lm -lgsl  -Wl,-R -Wl,/usr/local/lib -L/usr/local/lib -lruby-static -ltamuanova -lgsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+/usr/bin/ld: cannot find -ltamuanova
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { main(); return 0; }
+/* end */
+
+--------------------
+
