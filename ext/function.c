@@ -245,7 +245,7 @@ static VALUE rb_gsl_function_graph(int argc, VALUE *argv, VALUE obj)
   case 1:
     if (CLASS_OF(argv[0]) == rb_cRange) argv[0] = rb_gsl_range2ary(argv[0]);
     if (TYPE(argv[0]) == T_ARRAY) {
-      n = RARRAY(argv[0])->len;
+      n = RARRAY_LEN(argv[0]);
       v = gsl_vector_alloc(n);
       flag = 1;
       for (i = 0; i < n; i++) 
